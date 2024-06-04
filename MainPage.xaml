@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Dorisoy.SpeedometerPane"
+             x:Class="Dorisoy.SpeedometerPane.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout>
+
+            <!--Handler not found for view Dorisoy.SpeedometerPane.SpeedometerView.-->
+            <controls:SpeedometerView 
+                                      MaxSpeed="20000"
+                                      Margin="0,20,0,0"
+                                      BindingContext="{x:Reference mySlider}"
+                                      Speed="{Binding Path=Value}" />
+
+            <StackLayout 
+                         Spacing="0"
+                         Orientation="Horizontal"
+                         HorizontalOptions="Center"
+                         VerticalOptions="Start"
+                         Margin="0,0,0,0">
+                <Label FontAttributes="Bold"
+                       FontSize="35"
+                       HorizontalOptions="Center"
+                       BindingContext="{x:Reference mySlider}"
+                       Text="{Binding Path=Value, StringFormat='{0:N2}'}"
+                       TextColor="#171e48" />
+                
+                <Label FontSize="35"
+                       Text="rpm"
+                       Margin="5,0,0,0"
+                       HorizontalOptions="Center"
+                       VerticalTextAlignment="Center"
+                       TextColor="#cdccd2" />
+            </StackLayout>
+
+
+            <Slider 
+                    x:Name="mySlider"
+                    Maximum="20000"
+                    Margin="0,0,0,0" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
